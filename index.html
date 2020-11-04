@@ -3,9 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Starbucks</title>
 </head>
 <body>
-    
+    <section>
+        <div class="circle"></div>
+        <header>
+        <a href="#" class="logo" class="logo"><img src="./images/logo.png"></a>
+        <ul>
+            <li><a class="sousligne" href="#">Home</a></li>
+            <li><a class="sousligne" href="#">Menu</a></li>
+            <li><a class="sousligne" href="#">What's New</a></li>
+            <li><a class="sousligne" href="#">Contact</a></li>
+        </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>It's not just Coffee.<br>It's <span>Starbucks.</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet dignissimos commodi autem ducimus, nesciunt in! Eligendi praesentium vitae esse alias, enim error optio animi illum necessitatibus quaerat officiis. Ipsa, hic.</p>
+                <a href="#">Learn More</a>
+            </div>
+
+                <div class="imgBox">
+                    <img src="./images/img1.png" class="starbucks">
+                </div>
+        </div>
+        <ul class="thumb">
+            <li><img src="./images/thumb1.png" onclick="imgSlider('./images/img1.png', '#017143')"></li>
+            <li><img src="./images/thumb2.png" onclick="imgSlider('./images/img2.png', '#eb7495')"></li>
+            <!-- <li><img src="./images/thumb3.png" onclick="imgSlider('./images/img3.png', '#d752b1')"></li> -->
+
+        </ul>
+        <ul class="sci">
+            <li><a href="#"> <img src="./images/facebook.png"> </a></li>
+            <li><a href="#"> <img src="./images/twitter.png"> </a></li>
+            <li><a href="#"> <img src="./images/instagram.png"> </a></li>
+        </ul>
+    </section>
+    <script type="text/javascript">
+                let root = document.documentElement;
+                root.style.setProperty('--principale-color', "#017143");
+
+
+        document.addEventListener("mousemove", (e) => {
+            const starbucks = document.querySelector('.imgBox');
+            const circle = document.querySelector('.circle')
+            circle.style.left = 0 + e.pageX / 80 + 'px';
+            starbucks.style.paddingRight = 100 + e.pageX / 80 + 'px';
+            starbucks.style.paddingTop = 10 - e.pageY / 80  + 'px';
+
+        })
+
+        function imgSlider(anything, color){
+            document.querySelector('.starbucks').src = anything
+            const circle = document.querySelector('.circle');
+            circle.style.background = color;
+            root.style.setProperty('--principale-color', color);
+        }
+
+    </script>
 </body>
 </html>
